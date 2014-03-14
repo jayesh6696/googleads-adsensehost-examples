@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Administration page for {{ user.name }}'s blog</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #header {
+      background: #777777;
+      display: block;
+      text-align: center;
+      color: #ffffff;
+      font-family: "Open Sans",sans-serif;
+      font-size: x-large;
+      line-height: 3em;
+      vertical-align: middle;
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+    #header a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    #contents {
+      margin: 20px;
+      font-family: "Open Sans",sans-serif;
+    }
+
+    #admin {
+      text-align: right;
+    }
+
+    #welcome {
+      font-size: small;
+      color:#777777;
+      margin-bottom: 2em;
+    }
+
+    .group {
+      margin-left: 6em;
+      margin-right: 6em;
+      margin-bottom: 2em;
+      background: #eeeeee;
+      padding: 20px;
+    }
+
+    .group-name {
+      color:#777777;
+      font-size: small;
+      margin-bottom: 1.5em;
+    }
+
+    .preference {
+      margin-bottom: 1em;
+    }
+
+    .pref-name {
+      display: inline-block;
+      width: 10em;
+      font-weight: bold;
+      margin-left: 2em;
+    }
+
+    .pref-value {
+      display: inline-block;
+    }
+</style>
+</head>
+
+<body>
+  <div id="header"><a href="/">SampleHost Blogging Platform</a></div>
+
+  <div id="contents">
+    {% load url from future %}
+    <div id="welcome">Preferences for
+      <a href="{% url 'userblog' user.name %}">{{ user.name }}'s blog</a>
+    </div>
+
+    <div class="group">
+      <div class="group-name">General</div>
+      <div class="preference">
+        <div class="pref-name">Language</div>
+        <div class="pref-value">English</div>
+      </div>
+      <div class="preference">
+        <div class="pref-name">Timezone</div>
+        <div class="pref-value">Europe/London</div>
+      </div>
+      <div class="preference">
+        <div class="pref-name">Visibility</div>
+        <div class="pref-value">Public</div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-name">Appearance</div>
+      <div class="preference">
+        <div class="pref-name">Template</div>
+        <div class="pref-value">Default</div>
+      </div>
+      <div class="preference">
+        <div class="pref-name">Time</div>
+        <div class="pref-value">24hr format</div>
+      </div>
+    </div>
+
+    <div class="group">
+      <div class="group-name">Advertising</div>
+      <div class="preference">
+        <div class="pref-name">Advertising</div>
+        <div class="pref-value">
+          {% if user.pub_id %}
+          Your AdSense publisher ID is:
+          <strong><code>{{ user.pub_id }}</code></strong>
+          {% else %}
+          <a href="monetize/">Monetize your blog with AdSense!</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

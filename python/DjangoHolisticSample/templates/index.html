@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SampleHost Index</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    #header {
+      background: #777777;
+      display: block;
+      text-align: center;
+      color: #ffffff;
+      font-family: "Open Sans",sans-serif;
+      font-size: x-large;
+      line-height: 3em;
+      vertical-align: middle;
+      margin: 0;
+      border: 0;
+      padding: 0;
+    }
+
+    #header a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    #contents {
+      margin: 20px;
+      font-family: "Open Sans",sans-serif;
+    }
+</style>
+</head>
+
+<body>
+  <div id="header"><a href="/">SampleHost Blogging Platform</a></div>
+
+  <div id="contents">
+    <div id="blog-list">
+      <p>Available blogs:</p>
+        {% if latest_blogs %}
+            {% for user in latest_blogs %}
+              <p><a href="/blog/{{ user.name }}/">{{ user.name }}</a></p>
+            {% endfor %}
+        {% else %}
+            <p>No blogs are available.</p>
+        {% endif %}
+    </div>
+  </div>
+
+</body>

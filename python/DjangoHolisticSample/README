@@ -1,0 +1,63 @@
+ADSENSE HOST API HOLISTIC SAMPLE
+================================
+
+What is it?
+-----------------
+
+This sample is meant as an end-to-end guide for signing up publishers and
+setting up advertising for them. The execution flow is roughly as follows:
+- Start an association session, store it in the database linked to the user.
+- Redirect the user to the generated signup URL.
+- The user completes signup.
+- The user gets redirected to the application callback page.
+- Verify the received token, retrieve association and user from association
+  session ID.
+- Store publisher ID linked to the user.
+- Create a new ad unit for the publisher.
+- Generate ad code for the publisher.
+- Redirect user to blog page, where the ad is now visible.
+
+
+Quick Start Guide
+-----------------
+
+- Download and install Django:
+      https://www.djangoproject.com/download/
+
+- Download and install the latest version of the Google APIs Client Library for
+  Python (google-api-python-client-{version}.zip or .tar.gz)
+      https://code.google.com/p/google-api-python-client/downloads/list
+  You can read more about setting things up on the client library documentation:
+      https://developers.google.com/api-client-library/python/start/get_started
+
+- Modify samplehost/settings.py to add database information. Sample settings:
+      DATABASES = {
+          'default': {
+              'ENGINE': 'django.db.backends.sqlite3',
+              'NAME': '/path/to/your_db.db',
+              'USER': '',
+              'PASSWORD': '',
+              'HOST': '',
+              'PORT': '',
+          }
+      }
+
+- Set TEMPLATE_DIRS to the absolute path to your template files. This is the
+  'templates' subdirectory in your holistic sample installation:
+      TEMPLATE_DIRS = (
+          "/path/to/your/install/templates"
+      )
+
+- Initialize the database. From the root of your holistic sample installation:
+      python manage.py syncdb
+
+- Add your developer credentials to client_secrets.json.
+
+- Run initial authentication against the API, to create adsensehost.dat (which
+  will store the credential data you get back from Google's auth service).
+  Remember to use your AdSense Host account for this. From the root of your
+  holistic sample installation:
+      python api_utils.py
+
+- Run the application! From the root of your holistic sample installation:
+      python manage.py runserver
