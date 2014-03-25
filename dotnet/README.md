@@ -12,5 +12,5 @@
  * **AdSenseHostSample** for general inventory calls
  * **AssociationSessionSample** for calls related to the account association
 * Modify client_secrets.json with your client ID and client secret
-* Make sure client_secrets.json is copied to the Output Directory
+* Make sure that the _Build Action_ for client_secrets.json is "Content" and _Copy to Output Directory_ is "Copy if newer"
 * Build and execute
