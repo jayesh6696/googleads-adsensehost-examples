@@ -9,9 +9,8 @@
 * Use NuGet to install **Google.Apis.AdSenseHost.v4_1 Client Library**
 * Add the existing .cs files and client_secrets.json from the sample folder
 * Open the project properties and set the Startup object:
-** **AdSenseHostSample** for general inventory calls
-** **AssociationSessionSample** for calls related to the account association
+ * **AdSenseHostSample** for general inventory calls
+ * **AssociationSessionSample** for calls related to the account association
 * Modify client_secrets.json with your client ID and client secret
 * Make sure client_secrets.json is copied to the Output Directory
 * Build and execute
-
