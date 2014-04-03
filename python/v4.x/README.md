@@ -1,6 +1,6 @@
-# AdSense Management API v1.4 Samples
+# AdSense Host API v4.1 Samples
 
-A collection of command-line samples for the AdSense Management API.
+A collection of command-line samples for the AdSense Host API.
 
 ##Installation and first request
 
